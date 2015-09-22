@@ -18,13 +18,12 @@ public class MovieTest {
 		assertEquals("Cinderella", cinderella.getTitle());
 
 	}
-	
+
 	@Test
 	public void shouldChangePriceCodeWhenSetNewPriceCode() {
 
 		// given
 		Movie cinderella = new Movie("Cinderella", PriceCodes.Regular);
-
 
 		// when
 		cinderella.setPriceCode(PriceCodes.Childrens);
@@ -33,5 +32,7 @@ public class MovieTest {
 		assertEquals(PriceCodes.Childrens, cinderella.getPriceCode());
 
 	}
+	
+	
 
 }
