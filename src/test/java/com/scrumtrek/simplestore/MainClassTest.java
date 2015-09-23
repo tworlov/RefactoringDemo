@@ -6,7 +6,7 @@ public class MainClassTest {
 
 	@Test
 	public void shouldWhen() {
-
+		
 	}
 
 }
