@@ -2,16 +2,33 @@ package com.scrumtrek.simplestore;
 
 import static org.fest.assertions.Assertions.assertThat;
 
+import java.util.Arrays;
+import java.util.Collection;
+
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
+//import org.junit.runner.RunWith;
+//import org.junit.runners.Parameterized;
+//import org.junit.runners.Parameterized.Parameters;
 
 
-@RunWith(Parameterized.class)
+//@RunWith(Parameterized.class)
+
 
 
 public class CustomerTest {
+	
+	/*@Parameters
+	
+	public static Collection<Object[]> data(){
+		
+		return Arrays.asList(new Object[][]{
+			
+			{4,PriceCodes.NewRelease,12.0}
+			
+		});
+		
+	}*/
 
 	private Customer sut;
 
