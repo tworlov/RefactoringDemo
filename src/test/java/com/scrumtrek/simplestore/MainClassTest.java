@@ -5,8 +5,10 @@ import org.junit.Test;
 public class MainClassTest {
 
 	@Test
-	public void shouldWhen() {
-		
+	
+	/* :)*/
+	public void shouldExecuteWhenExecute() {
+		MainClass.Main(null);
 	}
 
 }

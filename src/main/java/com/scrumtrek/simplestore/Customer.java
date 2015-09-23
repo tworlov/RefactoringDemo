@@ -6,10 +6,19 @@ import java.util.List;
 public class Customer {
 	private String m_Name;
 	private List<Rental> m_Rentals = new ArrayList<Rental>();
-
+	private double totalAmount;
+	
 	public Customer(String name) {
 		m_Name = name;
 	}
+	
+	
+
+	public double getTotalAmount() {
+		return totalAmount;
+	}
+
+
 
 	public String getName() {
 		return m_Name;
@@ -20,7 +29,7 @@ public class Customer {
 	}
 
 	public String Statement() {
-		double totalAmount = 0;
+		 totalAmount = 0;
 		int frequentRenterPoints = 0;
 
 		String result = "Rental record for " + m_Name + "\n";
