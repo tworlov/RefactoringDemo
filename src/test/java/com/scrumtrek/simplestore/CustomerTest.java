@@ -83,5 +83,17 @@ public class CustomerTest {
 			.isEqualTo(2.0)
 			.isNotEqualTo(3.0);
 	}
+	
+
+	@Test
+	public void shouldGetStatmentWhenRentSales1Day() {
+		when(stubMovie.getPriceCode()).thenReturn(PriceCodes.Sales);
+		when(stubRental.getDaysRented()).thenReturn(1);
+		sut.Statement();
+		assertThat(sut.getTotalAmount())
+			.isEqualTo(0.0)
+			.isNotEqualTo(3.0);
+	}
+	
 
 }
