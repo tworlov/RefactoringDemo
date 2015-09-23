@@ -26,7 +26,7 @@ public class CustomerTest {
 	}
 
 	@Test
-	public void shouldGetStatmentWhenRentNewRelise4Day() {
+	public void shouldGetTotalAmount12WhenRentalNewRelise4Day() {
 
 		when(stubMovie.getPriceCode()).thenReturn(PriceCodes.NewRelease);
 		when(stubRental.getDaysRented()).thenReturn(4);
@@ -36,7 +36,7 @@ public class CustomerTest {
 	}
 
 	@Test
-	public void shouldGetStatmentWhenRentNewRelise1Day() {
+	public void shouldGetTotalAmountWhenRentNewRelise1Day() {
 
 		when(stubMovie.getPriceCode()).thenReturn(PriceCodes.NewRelease);
 		when(stubRental.getDaysRented()).thenReturn(1);
