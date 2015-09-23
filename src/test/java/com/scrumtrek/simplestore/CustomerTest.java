@@ -54,11 +54,13 @@ public class CustomerTest {
 	}
 
 	@Test
-	public void shouldGetTotalAmount12WhenRentalNewRelise4Day() {
+	public void shouldGetTotalAmountCorrectWhenRentalAndDaysSetup() {
 		sut.addRental(new RentalStubBuilder().withRentalDays(i).withMovie(new MovieStubBuilder().withPriceCodes(p).build()).build());
 		sut.Statement();
 		assertThat(sut.getTotalAmount()).isEqualTo(d);
 
 	}
 	
+
+
 }
