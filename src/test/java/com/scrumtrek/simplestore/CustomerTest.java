@@ -7,28 +7,43 @@ import java.util.Collection;
 
 import org.junit.Before;
 import org.junit.Test;
-//import org.junit.runner.RunWith;
-//import org.junit.runners.Parameterized;
-//import org.junit.runners.Parameterized.Parameters;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
 
 
-//@RunWith(Parameterized.class)
+@RunWith(Parameterized.class)
 
 
 
 public class CustomerTest {
 	
-	/*@Parameters
+	private int i;
+	private PriceCodes p;
+	private double d;
 	
+	public CustomerTest(int i, PriceCodes p, double d) {
+		 this.i =i;
+		 this.p = p;
+		 this.d = d;
+		
+	}
+	
+	@Parameters
 	public static Collection<Object[]> data(){
 		
 		return Arrays.asList(new Object[][]{
-			
-			{4,PriceCodes.NewRelease,12.0}
+			{4,PriceCodes.NewRelease,12.0},
+			{1,PriceCodes.NewRelease,3.0},
+			{4,PriceCodes.Childrens,1.5},
+			{2,PriceCodes.Childrens,1.5},
+			{4,PriceCodes.Regular,5.0},
+			{1,PriceCodes.Regular,2.0},
+			{1,PriceCodes.Sales,0.0}
 			
 		});
 		
-	}*/
+	}
 
 	private Customer sut;
 
@@ -40,56 +55,10 @@ public class CustomerTest {
 
 	@Test
 	public void shouldGetTotalAmount12WhenRentalNewRelise4Day() {
-		sut.addRental(new RentalStubBuilder().withRentalDays(4).withMovie(new MovieStubBuilder().withPriceCodes(PriceCodes.NewRelease).build()).build());
+		sut.addRental(new RentalStubBuilder().withRentalDays(i).withMovie(new MovieStubBuilder().withPriceCodes(p).build()).build());
 		sut.Statement();
-		assertThat(sut.getTotalAmount()).isEqualTo(12.0);
+		assertThat(sut.getTotalAmount()).isEqualTo(d);
 
 	}
-
-	@Test
-	public void shouldGetTotalAmountWhenRentNewRelise1Day() {
-		sut.addRental(new RentalStubBuilder().withRentalDays(1).withMovie(new MovieStubBuilder().withPriceCodes(PriceCodes.NewRelease).build()).build());
-		sut.Statement();
-		assertThat(sut.getTotalAmount()).isEqualTo(3.0);
-
-	}
-
-	@Test
-	public void shouldGetStatmentWhenRentChildren4Day() {
-		sut.addRental(new RentalStubBuilder().withRentalDays(4).withMovie(new MovieStubBuilder().withPriceCodes(PriceCodes.Childrens).build()).build());
-		sut.Statement();
-		assertThat(sut.getTotalAmount()).isEqualTo(1.5);
-
-	}
-
-	@Test
-	public void shouldGetStatmentWhenRentChildren2Day() {
-		sut.addRental(new RentalStubBuilder().withRentalDays(2).withMovie(new MovieStubBuilder().withPriceCodes(PriceCodes.Childrens).build()).build());
-		sut.Statement();
-		assertThat(sut.getTotalAmount()).isEqualTo(1.5);
-		assertThat(sut.getName()).isEqualTo("TestCustomer");
-	}
-
-	@Test
-	public void shouldGetStatmentWhenRentRegular4Day() {
-		sut.addRental(new RentalStubBuilder().withRentalDays(4).withMovie(new MovieStubBuilder().withPriceCodes(PriceCodes.Regular).build()).build());
-		sut.Statement();
-		assertThat(sut.getTotalAmount()).isEqualTo(5.0);
-
-	}
-
-	@Test
-	public void shouldGetStatmentWhenRentRegular1Day() {
-		sut.addRental(new RentalStubBuilder().withRentalDays(1).withMovie(new MovieStubBuilder().withPriceCodes(PriceCodes.Regular).build()).build());
-		sut.Statement();
-		assertThat(sut.getTotalAmount()).isEqualTo(2.0);
-	}
-
-	@Test
-	public void shouldGetStatmentWhenRentSales1Day() {
-		sut.addRental(new RentalStubBuilder().withRentalDays(1).withMovie(new MovieStubBuilder().withPriceCodes(PriceCodes.Sales).build()).build());
-		sut.Statement();
-		assertThat(sut.getTotalAmount()).isEqualTo(0.0);
-	}
-
+	
 }
